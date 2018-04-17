@@ -1,7 +1,7 @@
 $(document).ready( function(){
 
 /*
- * Create a list that holds all of your cards
+ * Create an array of the cards by id
  I found this solution for creating the array from id's at https://stackoverflow.com/questions/29116240/create-an-array-from-ids-from-divs
  */
 let cardDeck = [];
@@ -9,8 +9,6 @@ $("li.card").each(function(){
     let id = $(this).attr('id');
     cardDeck.push(id);
 });
-console.log(cardDeck);
-
 
 /*
  * Display the cards on the page
@@ -33,8 +31,23 @@ function shuffle(array) {
 
     return array;
 }
-
-
+    
+let shuffleDeck = [shuffle(cardDeck)];
+    
+//Create a new deck based on the shuffled array. From https://stackoverflow.com/questions/11128700/create-a-ul-and-fill-it-based-on-a-passed-array/11128791#11128791
+    
+function makeDeck(array) {
+    var list = document.createElement('ul');
+    for(var i = 0; i < array.length; i++) {
+        var item = document.createElement('li');
+        item.appendChild(document.createTextNode(array[i]));
+        list.appendChild(item);
+    }
+    return list;
+}
+    
+makeDeck(shuffleDeck);
+    
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
