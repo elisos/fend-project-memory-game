@@ -3,8 +3,9 @@
 //define variables
 let card = document.getElementsByClassName("card");
 let deck = document.querySelector(".deck");
+let shuffledArray = [];
 
-//create an array of the cards
+//Create an array of the cards
 let cardArray = [...card];
 
 // Shuffle function from http://stackoverflow.com/a/2450976
@@ -22,7 +23,17 @@ function shuffle(array) {
     return array;
 }
 
-let shuffledArray = [shuffle(cardArray)];
+// Use the shuffled array to change the deck's cards.
+function dealCards() { 
+    shuffledArray = shuffle(cardArray);
+    for (let i = 0; i < shuffledArray.length; i++) {
+ 	 	deck.innerHTML = "";
+ 	 	shuffledArray.forEach(function(card) {
+ 	 		deck.appendChild(card);
+ 	 	})};
+}
+
+dealCards();
 
 //
 /*
