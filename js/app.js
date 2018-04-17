@@ -1,6 +1,15 @@
+$(document).ready( function(){
+
 /*
  * Create a list that holds all of your cards
+ I found this solution for creating the array from id's at https://stackoverflow.com/questions/29116240/create-an-array-from-ids-from-divs
  */
+let cardDeck = [];
+$("li.card").each(function(){
+    let id = $(this).attr('id');
+    cardDeck.push(id);
+});
+console.log(cardDeck);
 
 
 /*
@@ -36,3 +45,4 @@ function shuffle(array) {
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
+});
