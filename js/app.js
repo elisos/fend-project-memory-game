@@ -1,21 +1,11 @@
-$(document).ready( function(){
 
-/*
- * Create an array of the cards by id
- I found this solution for creating the array from id's at https://stackoverflow.com/questions/29116240/create-an-array-from-ids-from-divs
- */
-let cardDeck = [];
-$("li.card").each(function(){
-    let id = $(this).attr('id');
-    cardDeck.push(id);
-});
 
-/*
- * Display the cards on the page
- *   - shuffle the list of cards using the provided "shuffle" method below
- *   - loop through each card and create its HTML
- *   - add each card's HTML to the page
- */
+//define variables
+let card = document.getElementsByClassName("card");
+let deck = document.querySelector(".deck");
+
+//create an array of the cards
+let cardArray = [...card];
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
@@ -31,8 +21,22 @@ function shuffle(array) {
 
     return array;
 }
+
+let shuffledArray = [shuffle(cardArray)];
+
+//
+/*
+ * Display the cards on the page
+ *   - shuffle the list of cards using the provided "shuffle" method below
+ *   - loop through each card and create its HTML
+ *   - add each card's HTML to the page
+ */
+
+
     
-let shuffleDeck = [shuffle(cardDeck)];
+
+    
+//replace the deck with the shuffled deck
     
 //Create a new deck based on the shuffled array. From https://stackoverflow.com/questions/11128700/create-a-ul-and-fill-it-based-on-a-passed-array/11128791#11128791
     
@@ -46,7 +50,9 @@ function makeDeck(array) {
     return list;
 }
     
-makeDeck(shuffleDeck);
+
+
+
     
 /*
  * set up the event listener for a card. If a card is clicked:
@@ -58,4 +64,3 @@ makeDeck(shuffleDeck);
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
-});
