@@ -1,12 +1,13 @@
 
 
 //define variables
-let card = document.getElementsByClassName("card");
+let cards = document.getElementsByClassName("card");
 let deck = document.querySelector(".deck");
+let card = deck.querySelectorAll("li");
 let shuffledArray = [];
 
 //Create an array of the cards
-let cardArray = [...card];
+let cardArray = [...cards];
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
@@ -27,44 +28,21 @@ function shuffle(array) {
 function dealCards() { 
     shuffledArray = shuffle(cardArray);
     for (let i = 0; i < shuffledArray.length; i++) {
- 	 	deck.innerHTML = "";
+ 	 	deck.innerHTML = ""; //erase the prior version of deck
  	 	shuffledArray.forEach(function(card) {
- 	 		deck.appendChild(card);
+ 	 		deck.appendChild(card); //populate a newly shuffled version
  	 	})};
 }
 
 dealCards();
 
-//
-/*
- * Display the cards on the page
- *   - shuffle the list of cards using the provided "shuffle" method below
- *   - loop through each card and create its HTML
- *   - add each card's HTML to the page
- */
+//Add an event listener to toggle the cards when clicked. Idea to use a loop from https://stackoverflow.com/questions/26084852/toggle-class-on-click-with-javascript
 
-
-    
-
-    
-//replace the deck with the shuffled deck
-    
-//Create a new deck based on the shuffled array. From https://stackoverflow.com/questions/11128700/create-a-ul-and-fill-it-based-on-a-passed-array/11128791#11128791
-    
-function makeDeck(array) {
-    var list = document.createElement('ul');
-    for(var i = 0; i < array.length; i++) {
-        var item = document.createElement('li');
-        item.appendChild(document.createTextNode(array[i]));
-        list.appendChild(item);
-    }
-    return list;
+for(var i = 0; i < card.length; i++){
+    card[i].addEventListener('click', function(event) {
+      this.classList.toggle('open');
+    });
 }
-    
-
-
-
-    
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
