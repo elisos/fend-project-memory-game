@@ -36,13 +36,30 @@ function dealCards() {
 
 dealCards();
 
-//Add an event listener to toggle the cards when clicked. Idea to use a loop from https://stackoverflow.com/questions/26084852/toggle-class-on-click-with-javascript
+//Add an event listener to open the cards when clicked.
+deck.addEventListener("click", function(e) {
+   e.target.classList.add('open'); 
+});
 
-for(var i = 0; i < card.length; i++){
-    card[i].addEventListener('click', function(event) {
-      this.classList.toggle('open');
-    });
-}
+let clickedCard = document.getElementsByClassName("open");
+let clickedArray = [...clickedCard];
+
+
+//Check if the matching card is already open
+//var goodUsers = ["someuser1", "someuser2", "someuser3"];
+//var users = ["someuser1", 'basuser'];
+//var user;
+//
+//for (let i=0; i < clickedArray.length; i++) {
+//  let clicked = clickedArray[i];
+//  if (goodUsers.indexOf(user) >= 0) {
+//    console.log(user + ' is a good user');
+//  } else {
+//    console.log(user + ' is BAD!!!');
+//  }
+//}
+
+
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
