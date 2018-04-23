@@ -36,29 +36,44 @@ function dealCards() {
 
 dealCards();
 
-//Add an event listener to open the cards when clicked.
-deck.addEventListener("click", function(e) {
-   e.target.classList.add('open'); 
-});
 
-let clickedCard = document.getElementsByClassName("open");
-let clickedArray = [...clickedCard];
+//add the event listener
 
+deck.addEventListener("click", matchCard); //when a card on the deck is clicked
 
-//Check if the matching card is already open
-//var goodUsers = ["someuser1", "someuser2", "someuser3"];
-//var users = ["someuser1", 'basuser'];
-//var user;
-//
-//for (let i=0; i < clickedArray.length; i++) {
-//  let clicked = clickedArray[i];
-//  if (goodUsers.indexOf(user) >= 0) {
-//    console.log(user + ' is a good user');
-//  } else {
-//    console.log(user + ' is BAD!!!');
-//  }
-//}
+let openArray = [];//the array which will contain opened cards
 
+function matchCard (e) {
+    
+    if (openArray.length < 2) { //until 2 cards are open
+        e.target.classList.add('open'); //open the card
+        openArray.push(e.target);//and add it to the array
+    };
+    
+    if (openArray.length == 2) { //once you have 2 cards
+        let firstCard = openArray[0].innerHTML;
+        let secondCard = openArray[1].innerHTML;
+        if (firstCard == secondCard) { //compare cards
+            yesMatch();
+        } else { //if no match
+            noMatch();
+        }
+    }
+    
+};
+
+function yesMatch () {
+    setTimeout 
+    openArray[0].classList.add('match');//add the match class
+    openArray[1].classList.add('match');
+    openArray.length = 0;//and clear the array
+};
+
+function noMatch () {
+    openArray[0].classList.remove('open'); //close the cards
+    openArray[1].classList.remove('open');
+    openArray.length = 0; //and clear the array
+};
 
 /*
  * set up the event listener for a card. If a card is clicked:
