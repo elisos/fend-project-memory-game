@@ -63,16 +63,19 @@ function matchCard (e) {
 };
 
 function yesMatch () {
-    setTimeout 
-    openArray[0].classList.add('match');//add the match class
-    openArray[1].classList.add('match');
-    openArray.length = 0;//and clear the array
+    setTimeout (function () {
+        openArray[0].classList.add('match');//add the match class
+        openArray[1].classList.add('match');
+        openArray.length = 0;//and clear the array
+    }, 750);
 };
 
 function noMatch () {
-    openArray[0].classList.remove('open'); //close the cards
-    openArray[1].classList.remove('open');
-    openArray.length = 0; //and clear the array
+    setTimeout (function () {
+        openArray[0].classList.remove('open'); //close the cards
+        openArray[1].classList.remove('open');
+        openArray.length = 0; //and clear the array
+    }, 750);
 };
 
 /*
