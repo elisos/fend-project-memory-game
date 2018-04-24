@@ -8,6 +8,10 @@ let shuffledArray = [];
 let openArray = [];//the array which will contain opened cards
 let moves = document.querySelector(".moves");
 let moveNumber = 0;
+let stars = document.querySelector(".stars");
+let star3 = stars.lastElementChild;
+let star2 = star3.previousElementSibling;
+let matchNumber = 0;
 
 //Create an array of the cards
 let cardArray = [...cards];
@@ -70,10 +74,10 @@ function matchCard (e) {
         }
     }
     
-    //update the move counter
+//    update the move counter
     addMove();
     
-    //change the star rating
+//    //change the star rating
     starRating();
 };
 
@@ -83,6 +87,7 @@ function yesMatch () {
         openArray[1].classList.add('match');
         openArray.length = 0;//and clear the array. from https://stackoverflow.com/questions/1232040/how-do-i-empty-an-array-in-javascript
     }, 850); //keep the pair open for a time before adding match
+    matchNumber++; //increment the number of matches
 };
 
 function noMatch () {
@@ -94,22 +99,20 @@ function noMatch () {
 };
 
 function addMove () {
-    moveNumber++;
-    moves.innerHTML = moveNumber;
+    moveNumber++; //with each click, increment by 1
+    moves.innerHTML = moveNumber; //show the number in the counter
 }
 
+
 function starRating () {
-    if (moveNumber <== 23) {
-        
-    } else if ((moveNumber > 23) && (moveNumber <==46)) {
-        
-    } else {
-        
+    if (moveNumber >= 23) { //turn the 3rd star empty from 23 moves
+        star3.innerHTML = "<i class=\"fa fa-star-o\"></i>";
+    } 
+    if (moveNumber >= 46) { //turn the 2nd star empty from 46 moves
+        star2.innerHTML = "<i class=\"fa fa-star-o\"></i>";
     }
 }
 
-/*
- * 
- *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
- *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
- */
+//
+// *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
+// */
