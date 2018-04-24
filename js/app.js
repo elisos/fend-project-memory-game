@@ -2,9 +2,12 @@
 
 //define variables
 let cards = document.getElementsByClassName("card");
-let deck = document.querySelector(".deck");
+const deck = document.querySelector(".deck");
 let card = deck.querySelectorAll("li");
 let shuffledArray = [];
+let openArray = [];//the array which will contain opened cards
+let moves = document.querySelector(".moves");
+let moveNumber = 0;
 
 //Create an array of the cards
 let cardArray = [...cards];
@@ -41,8 +44,6 @@ dealCards();
 
 deck.addEventListener("click", matchCard); //when a card on the deck is clicked
 
-let openArray = [];//the array which will contain opened cards
-
 function matchCard (e) {
     
     if (openArray.length < 2) { //until 2 cards are open
@@ -64,11 +65,16 @@ function matchCard (e) {
         let secondCard = openArray[1].innerHTML;
         if (firstCard == secondCard) { 
             yesMatch();
-        } else { //if no match
+        } else {
             noMatch();
         }
     }
     
+    //update the move counter
+    addMove();
+    
+    //change the star rating
+    starRating();
 };
 
 function yesMatch () {
@@ -76,7 +82,7 @@ function yesMatch () {
         openArray[0].classList.add('match');//add the match class
         openArray[1].classList.add('match');
         openArray.length = 0;//and clear the array. from https://stackoverflow.com/questions/1232040/how-do-i-empty-an-array-in-javascript
-    }, 850);
+    }, 850); //keep the pair open for a time before adding match
 };
 
 function noMatch () {
@@ -84,16 +90,26 @@ function noMatch () {
         openArray[0].classList.remove('open'); //close the cards
         openArray[1].classList.remove('open');
         openArray.length = 0; //and clear the array
-    }, 850);
+    }, 850); //keep the non-matched pair open for a time before closing
 };
 
+function addMove () {
+    moveNumber++;
+    moves.innerHTML = moveNumber;
+}
+
+function starRating () {
+    if (moveNumber <== 23) {
+        
+    } else if ((moveNumber > 23) && (moveNumber <==46)) {
+        
+    } else {
+        
+    }
+}
+
 /*
- * set up the event listener for a card. If a card is clicked:
- *  - display the card's symbol (put this functionality in another function that you call from this one)
- *  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
- *  - if the list already has another card, check to see if the two cards match
- *    + if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
- *    + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)
+ * 
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
