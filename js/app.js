@@ -51,9 +51,18 @@ function matchCard (e) {
     };
     
     if (openArray.length == 2) { //once you have 2 cards
+        
+        //make sure you don't include the same card twice
+        let firstID = openArray[0].getAttribute('id');
+        let secondID = openArray[1].getAttribute('id');
+        if (firstID == secondID) {
+            openArray.pop();
+        }
+        
+        //compare the cards
         let firstCard = openArray[0].innerHTML;
         let secondCard = openArray[1].innerHTML;
-        if (firstCard == secondCard) { //compare cards
+        if (firstCard == secondCard) { 
             yesMatch();
         } else { //if no match
             noMatch();
@@ -66,8 +75,8 @@ function yesMatch () {
     setTimeout (function () {
         openArray[0].classList.add('match');//add the match class
         openArray[1].classList.add('match');
-        openArray.length = 0;//and clear the array
-    }, 750);
+        openArray.length = 0;//and clear the array. from https://stackoverflow.com/questions/1232040/how-do-i-empty-an-array-in-javascript
+    }, 850);
 };
 
 function noMatch () {
@@ -75,7 +84,7 @@ function noMatch () {
         openArray[0].classList.remove('open'); //close the cards
         openArray[1].classList.remove('open');
         openArray.length = 0; //and clear the array
-    }, 750);
+    }, 850);
 };
 
 /*
