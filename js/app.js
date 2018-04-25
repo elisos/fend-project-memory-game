@@ -27,6 +27,7 @@ let sec = 0;
 
 //For End of Game:
 let matchNumber = 0;
+let modal = document.getElementById("modal");
 
 //--------Shuffle and Deal the Deck----------//
 
@@ -106,6 +107,11 @@ function yesMatch () {
         openArray.length = 0;//and clear the array. from https://stackoverflow.com/questions/1232040/how-do-i-empty-an-array-in-javascript
     }, 850); //keep the pair open for a time before adding match
     matchNumber++; //increment the number of matches
+    if (matchNumber === 8) {
+            callModal();
+}
+
+
 };
 
 function noMatch () {
@@ -152,7 +158,13 @@ function runTimer () {
     }, 1000);
 }
 
+//-------------Modal------------//
 
+function callModal () {
+    setTimeout (function () {
+    modal.style.display = "block";
+    }, 1000);
+}
 
 
 
