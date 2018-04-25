@@ -17,6 +17,7 @@ let moveNumber = 0;
 let stars = document.querySelector(".stars");
 let star3 = stars.lastElementChild;
 let star2 = star3.previousElementSibling;
+let star1 = stars.firstElementChild;
 
 //For Timer:
 let timer = document.getElementById("timer");
@@ -25,9 +26,11 @@ let seconds = document.getElementById("seconds");
 let min = 0;
 let sec = 0;
 
-//For End of Game:
+//For End of Game Modal:
 let matchNumber = 0;
 let modal = document.getElementById("modal");
+let time = document.getElementById("time");
+let score = document.getElementById("score");
 
 //--------Shuffle and Deal the Deck----------//
 
@@ -163,12 +166,7 @@ function runTimer () {
 function callModal () {
     setTimeout (function () {
     modal.style.display = "block";
+    time.innerHTML = min + ":" +  sec;
+    score.innerHTML = star1.innerHTML + star2.innerHTML + star3.innerHTML;
     }, 1000);
 }
-
-
-
-
-
-// *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
-// */
