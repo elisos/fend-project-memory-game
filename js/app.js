@@ -1,17 +1,34 @@
 
 
-//define variables
+//----Variable Declarations----//
+
+//For Deck Shuffle:
 let cards = document.getElementsByClassName("card");
 const deck = document.querySelector(".deck");
 let card = deck.querySelectorAll("li");
 let shuffledArray = [];
 let openArray = [];//the array which will contain opened cards
+
+//For Move Counter:
 let moves = document.querySelector(".moves");
 let moveNumber = 0;
+
+//For Star Rating:
 let stars = document.querySelector(".stars");
 let star3 = stars.lastElementChild;
 let star2 = star3.previousElementSibling;
+
+//For Timer:
+let timer = document.getElementById("timer");
+let minutes = document.getElementById("minutes");
+let seconds = document.getElementById("seconds");
+let min = 0;
+let sec = 0;
+
+//For End of Game:
 let matchNumber = 0;
+
+//--------Shuffle and Deal the Deck----------//
 
 //Create an array of the cards
 let cardArray = [...cards];
@@ -43,6 +60,7 @@ function dealCards() {
 
 dealCards();
 
+//---------Event Listener and Card Match Functions-----------//
 
 //add the event listener
 
@@ -77,7 +95,7 @@ function matchCard (e) {
 //    update the move counter
     addMove();
     
-//    //change the star rating
+//    change the star rating
     starRating();
 };
 
@@ -98,12 +116,16 @@ function noMatch () {
     }, 850); //keep the non-matched pair open for a time before closing
 };
 
+//-----------Move Counter Function-----------//
 function addMove () {
     moveNumber++; //with each click, increment by 1
     moves.innerHTML = moveNumber; //show the number in the counter
+    if (moveNumber === 1) {
+        runTimer();
+    }
 }
 
-
+//---------Star Rating Function---------//
 function starRating () {
     if (moveNumber >= 23) { //turn the 3rd star empty from 23 moves
         star3.innerHTML = "<i class=\"fa fa-star-o\"></i>";
@@ -113,6 +135,28 @@ function starRating () {
     }
 }
 
-//
+//-------------Timer--------------//
+function runTimer () {
+    Interval = setInterval ( function () {
+        sec++;
+        if (sec <= 9) {
+            seconds.innerHTML = "0" + sec; 
+        } else { 
+            seconds.innerHTML = sec;
+            }
+         if (sec === 60) {
+                min++;
+                sec = 0;
+                minutes.innerHTML = min;
+        } 
+    }, 1000);
+}
+
+
+
+
+
+
+
 // *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
 // */
