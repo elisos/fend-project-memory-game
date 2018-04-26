@@ -29,6 +29,9 @@ let sec = 0;
 //For Restart:
 let restart = document.querySelector(".restart");
 
+//For Winner's Wiggle:
+let fish = deck.querySelectorAll("img");
+
 //For End of Game Modal:
 let matchNumber = 0;
 let modal = document.getElementById("modal");
@@ -115,7 +118,10 @@ function yesMatch () {
     }, 850); //keep the pair open for a time before adding match
     matchNumber++; //increment the number of matches
     if (matchNumber === 8) { //when the game is completed,
+        wiggle();
+        setTimeout (function () {
             callModal(); //trigger modal
+        }, 1300);
 }
 
 
@@ -179,6 +185,13 @@ function restartGame () {
     min = 0;
     sec = 0;  
 };
+
+//-----------Winner's Wiggle---------//
+function wiggle () {
+    for (i = 0; i < fish.length; i++) {
+    fish[i].classList.add("animated", "infinite", "bounce");
+    };
+}
 
 //-------------Modal------------//
 
