@@ -26,11 +26,15 @@ let seconds = document.getElementById("seconds");
 let min = 0;
 let sec = 0;
 
+//For Restart:
+let restart = document.querySelector(".restart");
+
 //For End of Game Modal:
 let matchNumber = 0;
 let modal = document.getElementById("modal");
 let time = document.getElementById("time");
 let score = document.getElementById("score");
+let playAgain = document.getElementById("play-again");
 
 //--------Shuffle and Deal the Deck----------//
 
@@ -60,7 +64,7 @@ function dealCards() {
  	 	shuffledArray.forEach(function(card) {
  	 		deck.appendChild(card); //populate a newly shuffled version
  	 	})};
-}
+};
 
 dealCards();
 
@@ -94,7 +98,7 @@ function matchCard (e) {
         } else {
             noMatch();
         }
-    }
+    };
     
 //    update the move counter
     addMove();
@@ -110,8 +114,8 @@ function yesMatch () {
         openArray.length = 0;//and clear the array. from https://stackoverflow.com/questions/1232040/how-do-i-empty-an-array-in-javascript
     }, 850); //keep the pair open for a time before adding match
     matchNumber++; //increment the number of matches
-    if (matchNumber === 8) {
-            callModal();
+    if (matchNumber === 8) { //when the game is completed,
+            callModal(); //trigger modal
 }
 
 
@@ -132,7 +136,7 @@ function addMove () {
     if (moveNumber === 1) {
         runTimer();
     }
-}
+};
 
 //---------Star Rating Function---------//
 function starRating () {
@@ -142,7 +146,7 @@ function starRating () {
     if (moveNumber >= 46) { //turn the 2nd star empty from 46 moves
         star2.innerHTML = "<i class=\"fa fa-star-o\"></i>";
     }
-}
+};
 
 //-------------Timer--------------//
 function runTimer () {
@@ -161,6 +165,21 @@ function runTimer () {
     }, 1000);
 }
 
+//-----------Restart-------------//
+restart.addEventListener("click", restartGame);
+
+function restartGame () {
+    shuffle(cardArray);
+    dealCards;
+    openArray = [];
+    moveNumber = 0;
+    matchNumber = 0;
+    star2.innerHTML = "<i class=\"fa fa-star\"></i>";
+    star3.innerHTML = "<i class=\"fa fa-star\"></i>";
+    min = 0;
+    sec = 0;  
+};
+
 //-------------Modal------------//
 
 function callModal () {
@@ -169,4 +188,13 @@ function callModal () {
     time.innerHTML = min + ":" +  sec;
     score.innerHTML = star1.innerHTML + star2.innerHTML + star3.innerHTML;
     }, 1000);
+}
+
+//---------Play Again------------//
+
+playAgain.addEventListener("click", startOver);
+
+function startOver () {
+    restartGame();
+    modal.style.display = "none";
 }
