@@ -141,23 +141,15 @@ h1 {
 .stars li img {
     height: 35px;
 }
-
 .score-panel .restart {
     float: right;
     cursor: pointer;
 }
 
-#bubbles {
-    position: absolute;
-    bottom: 1%;
-    left: 50px;
-    animation-name: rise 15s infinite;
-    
-}
-
-@keyframes rise {
-    from {bottom: 1%;}
-    to {bottom: 100%;}
+#credits {
+    text-align: center
+    height: 20px;
+    margin: 0 auto;
 }
 
 /*----Modal------*/
