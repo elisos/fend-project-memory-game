@@ -145,14 +145,15 @@ h1 {
     float: left;
 }
 
-.score-panel .stars li {
+.score-panel .stars li, #score li {
     list-style: none;
     display: inline-block;
 }
 
-.stars li img {
+.stars li img, #score li img {
     height: 35px;
 }
+
 .score-panel .restart {
     float: right;
     cursor: pointer;

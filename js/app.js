@@ -121,7 +121,7 @@ function yesMatch () {
         wiggle();
         setTimeout (function () {
             callModal(); //trigger modal
-        }, 1300);
+        }, 1500);
 }
 
 
@@ -137,7 +137,7 @@ function noMatch () {
 
 //-----------Move Counter Function-----------//
 function addMove () {
-    moveNumber++; //with each click, increment by 1
+    ++moveNumber; //with each click, increment by 1
     moves.innerHTML = moveNumber; //show the number in the counter
     if (moveNumber === 1) {
         runTimer();
@@ -176,20 +176,33 @@ restart.addEventListener("click", restartGame);
 
 function restartGame () {
     shuffle(cardArray);
-    dealCards;
+    dealCards();
+    closeCards();
     openArray = [];
     moveNumber = 0;
     matchNumber = 0;
     star2.innerHTML = "<i class=\"fa fa-star\"></i>";
     star3.innerHTML = "<i class=\"fa fa-star\"></i>";
     min = 0;
-    sec = 0;  
+    sec = 0; 
+    unWiggle();
 };
 
+function closeCards () {
+    for (i = 0; i < card.length; i++) {
+    card[i].classList.remove("open", "match");
+    };
+}
 //-----------Winner's Wiggle---------//
 function wiggle () {
     for (i = 0; i < fish.length; i++) {
     fish[i].classList.add("animated", "infinite", "bounce");
+    };
+}
+
+function unWiggle () {
+    for (i = 0; i < fish.length; i++) {
+    fish[i].classList.remove("animated", "infinite", "bounce");
     };
 }
 
@@ -199,9 +212,18 @@ function callModal () {
     setTimeout (function () {
     modal.style.display = "block";
     time.innerHTML = min + ":" +  sec;
-    score.innerHTML = star1.innerHTML + star2.innerHTML + star3.innerHTML;
+    score.innerHTML = stars.innerHTML;
     }, 1000);
 }
+
+//function modalScore () {
+//  if (moveNumber >= 23) { //erase the 3rd star from 23 moves
+//        score;
+//    } 
+//    if (moveNumber >= 46) { //erase the 2nd star from 46 moves
+//        star2.style.display = "none";
+//    }
+//};
 
 //---------Play Again------------//
 
