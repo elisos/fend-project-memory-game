@@ -15,9 +15,9 @@ let moveNumber = 0;
 
 //For Star Rating:
 let stars = document.querySelector(".stars");
-let star3 = stars.lastElementChild;
-let star2 = star3.previousElementSibling;
-let star1 = stars.firstElementChild;
+let star3 = document.querySelector("#star3");
+let star2 = document.querySelector("#star2");
+let star1 = document.querySelector("#star1");
 
 //For Timer:
 let timer = document.getElementById("timer");
@@ -140,11 +140,11 @@ function addMove () {
 
 //---------Star Rating Function---------//
 function starRating () {
-    if (moveNumber >= 23) { //turn the 3rd star empty from 23 moves
-        star3.innerHTML = "<i class=\"fa fa-star-o\"></i>";
+    if (moveNumber >= 23) { //erase the 3rd star from 23 moves
+        star3.style.display = "none";
     } 
-    if (moveNumber >= 46) { //turn the 2nd star empty from 46 moves
-        star2.innerHTML = "<i class=\"fa fa-star-o\"></i>";
+    if (moveNumber >= 46) { //erase the 2nd star from 46 moves
+        star2.style.display = "none";
     }
 };
 

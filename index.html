@@ -3,8 +3,10 @@
 <head>
     <meta charset="utf-8">
     <title>Matching Game</title>
-    <meta name="description" content="">
+    <meta name="description" content="A fun memory game!">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
     <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Coda">
     <link rel="stylesheet" href="css/app.css">
 </head>
@@ -15,85 +17,90 @@
             <h1>Matching Game</h1>
         </header>
 
-        <section class="score-panel">
-        	<ul class="stars" id="stars">
-        		<li><i class="fa fa-star"></i></li>
-        		<li><i class="fa fa-star"></i></li>
-        		<li><i class="fa fa-star"></i></li>
-        	</ul>
+        <div id="content">
+            <section class="score-panel">
+<!--                <p>Score:</p>-->
+                <ul class="stars" id="stars">
+                    <li><img id = "star1" src ="img/starfish.png" alt="starfish"></li>
+                    <li><img id = "star2" src ="img/starfish.png" alt="starfish"></li>
+                    <li><img id = "star3" src ="img/starfish.png" alt="starfish"></li>
+                </ul>
 
-        	<span class="moves">0</span> Moves
-            
-            <div id="timer">
-                <span id="minutes">0</span>:<span id="seconds">0</span>
-            </div>
+                <div><span class="moves">0</span> Moves</div>
 
-            <div class="restart">
-        		<i class="fa fa-repeat"></i>
-        	</div>
-        </section>
+                <div id="timer">
+                    <span id="minutes">0</span>:<span id="seconds">0</span>
+                </div>
 
-        <ul class="deck">
-            <li class="card" id="card1">
-                <i class="fa fa-diamond"></i>
-            </li>
-            <li class="card" id="card2">
-                <i class="fa fa-paper-plane-o"></i>
-            </li>
-            <li class="card" id="card3">
-                <i class="fa fa-anchor"></i>
-            </li>
-            <li class="card" id="card4">
-                <i class="fa fa-bolt"></i>
-            </li>
-            <li class="card" id="card5">
-                <i class="fa fa-cube"></i>
-            </li>
-            <li class="card" id="card6">
-                <i class="fa fa-anchor"></i>
-            </li>
-            <li class="card" id="card7">
-                <i class="fa fa-leaf"></i>
-            </li>
-            <li class="card" id="card8">
-                <i class="fa fa-bicycle"></i>
-            </li>
-            <li class="card" id="card9">
-                <i class="fa fa-diamond"></i>
-            </li>
-            <li class="card" id="card10">
-                <i class="fa fa-bomb"></i>
-            </li>
-            <li class="card" id="card11">
-                <i class="fa fa-leaf"></i>
-            </li>
-            <li class="card" id="card12">
-                <i class="fa fa-bomb"></i>
-            </li>
-            <li class="card" id="card13">
-                <i class="fa fa-bolt"></i>
-            </li>
-            <li class="card" id="card14">
-                <i class="fa fa-bicycle"></i>
-            </li>
-            <li class="card" id="card15">
-                <i class="fa fa-paper-plane-o"></i>
-            </li>
-            <li class="card" id="card16">
-                <i class="fa fa-cube"></i>
-            </li>
-        </ul>
+                <div class="restart">
+                    <i class="fa fa-repeat"></i>
+                </div>
+
+            </section>
+
+            <ul class="deck">
+                <li class="card" id="card1">
+                    <img src = "img/blowfish.png" alt="blowfish">
+                </li>
+                <li class="card" id="card2">
+                    <img src = "img/blowfish.png" alt="blowfish">
+                </li>
+                <li class="card" id="card3">
+                    <img src = "img/crab.png" alt="crab">
+                </li>
+                <li class="card" id="card4">
+                    <img src = "img/crab.png" alt="crab">
+                </li>
+                <li class="card" id="card5">
+                    <img src ="img/fish.png" alt="fish">
+                </li>
+                <li class="card" id="card6">
+                    <img src ="img/fish.png" alt="fish">
+                </li>
+                <li class="card" id="card7">
+                    <img src ="img/grampus.png" alt="whale">
+                </li>
+                <li class="card" id="card8">
+                    <img src ="img/grampus.png" alt="whale">
+                </li>
+                <li class="card" id="card9">
+                    <img src="img/jellyfish.png" alt="jellyfish">
+                </li>
+                <li class="card" id="card10">
+                    <img src="img/jellyfish.png" alt="jellyfish">
+                </li>
+                <li class="card" id="card11">
+                    <img src = "img/octopus.png" alt="octopus">
+                </li>
+                <li class="card" id="card12">
+                    <img src = "img/octopus.png" alt="octopus">
+                </li>
+                <li class="card" id="card13">
+                    <img src ="img/bluefish.png" alt="blue fish">
+                </li>
+                <li class="card" id="card14">
+                    <img src ="img/bluefish.png" alt="blue fish">
+                </li>
+                <li class="card" id="card15">
+                    <img src = "img/turtle.png" alt="turtle">
+                </li>
+                <li class="card" id="card16">
+                    <img src = "img/turtle.png" alt="turtle">
+                </li>
+            </ul>
+        </div>
     </div>
 
     <div id="modal">
         <div id="modal-content">
+            <img id = "star1" src ="img/starfish.png" alt="starfish">
             <h1>You have O'FISHally Won!</h1>
             <p>You completed the game in:</p>
             <span id="time"></span>
             <p>With a score of:</p>
             <span id="score"></span>
             <h2>Good Work!</h2>
-            <button>Play Again?</button>
+            <button id="play-again">Play Again?</button>
         </div>
     </div>
     
@@ -101,5 +108,5 @@
     <script src="js/app.js"></script>
 </body>
 </html>
-<!--Photo by Yannis Papanastasopoulos on Unsplash-->
+
 <!--<div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>-->

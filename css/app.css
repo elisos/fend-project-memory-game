@@ -1,5 +1,9 @@
 html {
     box-sizing: border-box;
+    background: url('../img/4142.jpg');
+    background-size: cover;
+    background-position: center;
+   
 }
 
 *,
@@ -17,11 +21,11 @@ body {
 }
 
 body {
-    background: #ffffff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
-    font-family: 'Coda', cursive;
+    font-family: 'Righteous', cursive;
 }
 
 .container {
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -29,10 +33,18 @@ body {
 }
 
 h1 {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Righteous', sans-serif;
     font-weight: 300;
+    font-size: 55px;
+    color: #002539;
 }
 
+
+#content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
 /*
  * Styles for the deck of cards
  */
@@ -40,21 +52,21 @@ h1 {
 .deck {
     width: 660px;
     min-height: 680px;
-    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
     padding: 32px;
-    border-radius: 10px;
-    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     margin: 0 0 3em;
+    background: rgba(163, 220, 255, 0.74);
+    border-radius: 30px;
 }
 
 .deck .card {
-    height: 125px;
-    width: 125px;
-    background: #2e3d49;
+    height: 140px;
+    width: 140px;
+    background: url('../img/card.jpg');
+    background-size: contain;
     font-size: 0;
     color: #ffffff;
     border-radius: 8px;
@@ -62,14 +74,26 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+    box-shadow: 5px 2px 20px 0 rgba(255, 255, 170, 0.5);
+}
+
+.deck .card img {
+    display: none;
 }
 
 .deck .card.open {
-    transform: rotateY(0);
-    background: #02b3e4;
+    transform: rotateY(180deg);
+    background: rgba(130, 228, 255, 0.74);
     cursor: default;
     font-size: 33px;
+}
+
+.deck .card.open img {
+    display: block;
+}
+
+.deck .car.open i {
+    height: 33px;
 }
 
 .deck .card.show {
@@ -79,7 +103,7 @@ h1 {
 .deck .card.match {
     transform: rotateY(0);
     cursor: default;
-    background: #02ccba;
+    background: rgba(2, 204, 186, 0.77);
     font-size: 33px;
 }
 
@@ -89,8 +113,16 @@ h1 {
 
 .score-panel {
     text-align: left;
-    width: 345px;
+    width: 200px;
+    height: 400px;
     margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+/*
+    background: rgba(163, 220, 255, 0.74);
+    border-radius: 30px;
+*/
 }
 
 .score-panel .stars {
@@ -98,6 +130,7 @@ h1 {
     padding: 0;
     display: inline-block;
     margin: 0 5px 0 0;
+    float: left;
 }
 
 .score-panel .stars li {
@@ -105,9 +138,26 @@ h1 {
     display: inline-block;
 }
 
+.stars li img {
+    height: 35px;
+}
+
 .score-panel .restart {
     float: right;
     cursor: pointer;
+}
+
+#bubbles {
+    position: absolute;
+    bottom: 1%;
+    left: 50px;
+    animation-name: rise 15s infinite;
+    
+}
+
+@keyframes rise {
+    from {bottom: 1%;}
+    to {bottom: 100%;}
 }
 
 /*----Modal------*/
@@ -126,10 +176,13 @@ h1 {
 }
 
 #modal-content {
-    background-color: #fefefe;
+    background-color: rgb(130, 228, 255);
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
+    border-radius: 30px;
     width: 80%; /* Could be more or less, depending on screen size */
+    text-align: center;
+    color: #002539;
 }
 
