@@ -125,20 +125,36 @@ h1 {
 
 .score-panel {
     text-align: left;
-    width: 200px;
+    width: 150px;
     height: 400px;
-    margin-bottom: 10px;
+    margin: 0 20px 0 0;
+    background: rgba(163, 220, 255, 0.74);
+    border-radius: 30px;
+}
+
+.score-content {
+    margin-left: 15px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-/*
-    background: rgba(163, 220, 255, 0.74);
-    border-radius: 30px;
-*/
+    height: 100%;
+    width: 100%;
+}
+
+#timer {
+    background-color: azure;
+    border: 2px solid #005b8d;
+    color: #002539;
+    width: 40px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.moves {
+    margin-left: 15px;
 }
 
 .score-panel .stars {
-    margin: 0;
     padding: 0;
     display: inline-block;
     margin: 0 5px 0 0;
@@ -155,8 +171,11 @@ h1 {
 }
 
 .score-panel .restart {
-    float: right;
     cursor: pointer;
+    font-size: 20px;
+    text-align: center;
+    margin-right: 25px;
+    color: #00599a;
 }
 
 #credits {

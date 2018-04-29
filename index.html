@@ -22,23 +22,28 @@
 
         <div id="content">
             <section class="score-panel">
-<!--                <p>Score:</p>-->
-                <ul class="stars" id="stars">
-                    <li><img id = "star1" src ="img/starfish.png" alt="starfish"></li>
-                    <li><img id = "star2" src ="img/starfish.png" alt="starfish"></li>
-                    <li><img id = "star3" src ="img/starfish.png" alt="starfish"></li>
-                </ul>
+                <div class="score-content">
+                    <h3>Scoreboard:</h3>
 
-                <div><span class="moves">0</span> Moves</div>
+                    <div id="timer">
+                            <span id="minutes">0</span>:<span id="seconds">0</span>
+                        </div>
 
-                <div id="timer">
-                    <span id="minutes">0</span>:<span id="seconds">0</span>
+                    <div>Moves:<span class="moves">0</span></div>
+                    
+                    <div>
+                    <p>Score:</p>
+                        <ul class="stars" id="stars">
+                            <li><img id = "star1" src ="img/starfish.png" alt="starfish"></li>
+                            <li><img id = "star2" src ="img/starfish.png" alt="starfish"></li>
+                            <li><img id = "star3" src ="img/starfish.png" alt="starfish"></li>
+                        </ul>
+                    </div>    
+                    
+                    <div class="restart">
+                        <i class="fa fa-repeat"></i>
+                    </div>
                 </div>
-
-                <div class="restart">
-                    <i class="fa fa-repeat"></i>
-                </div>
-
             </section>
 
             <ul class="deck">
