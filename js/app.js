@@ -126,8 +126,8 @@ function matchCard (e) {
 
 function yesMatch () {
     setTimeout (function () {
-        openArray[0].classList.add('match');//add the match class
-        openArray[1].classList.add('match');
+        openArray[0].classList.add('match', "lock");//add the match class
+        openArray[1].classList.add('match', "lock");
         openArray.length = 0;//and clear the array. from https://stackoverflow.com/questions/1232040/how-do-i-empty-an-array-in-javascript
     }, 850); //keep the pair open for a time before adding match
     matchNumber++; //increment the number of matches
