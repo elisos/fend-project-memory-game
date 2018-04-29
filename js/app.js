@@ -19,6 +19,7 @@ let stars = document.querySelector(".stars");
 let star3 = document.querySelector("#star3");
 let star2 = document.querySelector("#star2");
 let star1 = document.querySelector("#star1");
+let starfish = document.querySelectorAll(".starfish");
 
 //For Timer:
 let timer = document.getElementById("timer");
@@ -166,6 +167,12 @@ function starRating () {
     }
 };
 
+function starRestore () {
+    for (i = 0; i < starfish.length; i++) {
+        starfish[i].style.display = "inline-block";
+        };
+}
+
 //-------------Timer--------------//
 function runTimer () {
     Interval = setInterval ( function () {
@@ -199,6 +206,7 @@ function restartGame () {
     min = 0;
     sec = 0; 
     unWiggle();
+    starRestore();
 };
 
 function closeCards () {
