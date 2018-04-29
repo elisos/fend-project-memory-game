@@ -237,6 +237,12 @@ function matchWiggle () {
         headerFish[i].classList.add("animated", "bounce");
         };
     }, 850);
+    setTimeout (function() {
+        for (i = 0; i < headerFish.length; i++) {
+        headerFish[i].classList.remove("animated", "bounce");
+        };
+    }, 1500);
+    
 }
 //-------------Modal------------//
 
