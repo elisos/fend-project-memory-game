@@ -32,6 +32,7 @@ let restart = document.querySelector(".restart");
 
 //For Winner's Wiggle:
 let fish = deck.querySelectorAll("img");
+let headerFish = document.querySelectorAll(".header-fish");
 
 //For End of Game Modal:
 let matchNumber = 0;
@@ -129,6 +130,7 @@ function yesMatch () {
         openArray.length = 0;//and clear the array. from https://stackoverflow.com/questions/1232040/how-do-i-empty-an-array-in-javascript
     }, 850); //keep the pair open for a time before adding match
     matchNumber++; //increment the number of matches
+    matchWiggle();
     if (matchNumber === 8) { //when the game is completed,
         wiggle();
         setTimeout (function () {
@@ -221,6 +223,13 @@ function unWiggle () {
     };
 }
 
+function matchWiggle () {
+    setTimeout (function() {
+        for (i = 0; i < headerFish.length; i++) {
+        headerFish[i].classList.add("animated", "bounce");
+        };
+    }, 850);
+}
 //-------------Modal------------//
 
 function callModal () {
