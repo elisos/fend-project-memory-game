@@ -8,6 +8,7 @@ const deck = document.querySelector(".deck");
 let card = deck.querySelectorAll("li");
 let shuffledArray = [];
 let openArray = [];//the array which will contain opened cards
+let twoClicked = true;
 
 //For Move Counter:
 let moves = document.querySelector(".moves");
@@ -101,6 +102,17 @@ function matchCard (e) {
         } else {
             noMatch();
         }
+        
+//        deck.addEventListener("click", function(e){
+//            e.preventDefault();
+//            if (twoClicked == true) {
+//                twoClicked = false; // disable future clicks for now
+//                do_Something();
+//            setTimeout(function(){
+//                twoClicked = true;
+//            }, 850); // restore functionality after 3 seconds
+//            }
+//        });
     };
     
 //    update the move counter
@@ -122,9 +134,7 @@ function yesMatch () {
         setTimeout (function () {
             callModal(); //trigger modal
         }, 1500);
-}
-
-
+    }
 };
 
 function noMatch () {
@@ -183,6 +193,7 @@ function restartGame () {
     matchNumber = 0;
     star2.innerHTML = "<i class=\"fa fa-star\"></i>";
     star3.innerHTML = "<i class=\"fa fa-star\"></i>";
+    clearInterval(Interval);
     min = 0;
     sec = 0; 
     unWiggle();
@@ -194,11 +205,15 @@ function closeCards () {
     };
 }
 //-----------Winner's Wiggle---------//
+
 function wiggle () {
-    for (i = 0; i < fish.length; i++) {
-    fish[i].classList.add("animated", "infinite", "bounce");
-    };
+    setTimeout (function() {
+        for (i = 0; i < fish.length; i++) {
+        fish[i].classList.add("animated", "infinite", "bounce");
+        };
+    }, 850);
 }
+
 
 function unWiggle () {
     for (i = 0; i < fish.length; i++) {
@@ -215,15 +230,6 @@ function callModal () {
     score.innerHTML = stars.innerHTML;
     }, 1000);
 }
-
-//function modalScore () {
-//  if (moveNumber >= 23) { //erase the 3rd star from 23 moves
-//        score;
-//    } 
-//    if (moveNumber >= 46) { //erase the 2nd star from 46 moves
-//        star2.style.display = "none";
-//    }
-//};
 
 //---------Play Again------------//
 
