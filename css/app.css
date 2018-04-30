@@ -1,4 +1,5 @@
 html {
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
     background: url('../img/4142.jpg');
     background-size: cover;
@@ -8,6 +9,7 @@ html {
 *,
 *::before,
 *::after {
+    -webkit-box-sizing: inherit;
     box-sizing: inherit;
 }
 
@@ -25,17 +27,34 @@ body {
 
 .container {
     width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
 }
 
 header {
     width: 70%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
     flex-direction: row;
+    -ms-flex-pack: distribute;
     justify-content: space-around;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
 }
 
@@ -47,12 +66,19 @@ h1 {
 }
 
 #school2 {
+    -webkit-transform: rotateY(180deg);
     transform: rotateY(180deg);
 }
 
 #content {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
     flex-direction: row;
+    -ms-flex-pack: distribute;
     justify-content: space-around;
 }
 /*
@@ -63,9 +89,16 @@ h1 {
     width: 660px;
     min-height: 680px;
     padding: 32px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     margin: 0 0 3em;
     background: rgba(163, 220, 255, 0.74);
@@ -81,9 +114,16 @@ h1 {
     color: #ffffff;
     border-radius: 8px;
     cursor: pointer;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-shadow: 5px 2px 20px 0 rgba(255, 255, 170, 0.5);
     box-shadow: 5px 2px 20px 0 rgba(255, 255, 170, 0.5);
 }
 
@@ -92,6 +132,7 @@ h1 {
 }
 
 .deck .card.open {
+    -webkit-transform: rotateY(180deg);
     transform: rotateY(180deg);
     background: rgba(130, 228, 255, 0.74);
     cursor: default;
@@ -111,6 +152,7 @@ h1 {
 }
 
 .deck .card.match {
+    -webkit-transform: rotateY(0);
     transform: rotateY(0);
     cursor: default;
     background: rgba(2, 204, 186, 0.77);
@@ -140,8 +182,14 @@ h1 {
 
 .score-content {
     margin-left: 15px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -ms-flex-pack: distribute;
     justify-content: space-around;
     height: 100%;
     width: 100%;
@@ -230,6 +278,9 @@ h3 {
 @media screen and (min-width: 701px) and (max-width: 900px) {
     
     #content {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
         flex-direction: column;
     }
      
@@ -240,6 +291,9 @@ h3 {
     }
 
     .score-content {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
         flex-direction: row;
     }
 
@@ -263,10 +317,16 @@ h3 {
 
 @media screen and (min-width: 501px) and (max-width: 700px) {
     #content {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
         flex-direction: column;
     }
     
     .score-content {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
         flex-direction: row;
     }
     
@@ -333,6 +393,9 @@ h3 {
     }
 
     #content {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
         flex-direction: column;
     }
      
@@ -359,6 +422,9 @@ h3 {
     }
 
     .score-content {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
         flex-direction: row;
     }
 
