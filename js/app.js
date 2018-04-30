@@ -104,17 +104,6 @@ function matchCard (e) {
         } else {
             noMatch();
         }
-        
-//        deck.addEventListener("click", function(e){
-//            e.preventDefault();
-//            if (twoClicked == true) {
-//                twoClicked = false; // disable future clicks for now
-//                do_Something();
-//            setTimeout(function(){
-//                twoClicked = true;
-//            }, 850); // restore functionality after 3 seconds
-//            }
-//        });
     };
     
 //    update the move counter
@@ -129,7 +118,7 @@ function yesMatch () {
         openArray[0].classList.add('match', "lock");//add the match class
         openArray[1].classList.add('match', "lock");
         openArray.length = 0;//and clear the array. from https://stackoverflow.com/questions/1232040/how-do-i-empty-an-array-in-javascript
-    }, 850); //keep the pair open for a time before adding match
+    }, 850); //keep the pair open for a time before adding match and lock
     matchNumber++; //increment the number of matches
     matchWiggle();
     if (matchNumber === 8) { //when the game is completed,
@@ -159,15 +148,15 @@ function addMove () {
 
 //---------Star Rating Function---------//
 function starRating () {
-    if (moveNumber >= 23) { //erase the 3rd star from 23 moves
+    if (moveNumber >= 23) { //hide the 3rd star from 23 moves
         star3.style.display = "none";
     } 
-    if (moveNumber >= 46) { //erase the 2nd star from 46 moves
+    if (moveNumber >= 46) { //hide the 2nd star from 46 moves
         star2.style.display = "none";
     }
 };
 
-function starRestore () {
+function starRestore () { //on restart, show all stars
     for (i = 0; i < starfish.length; i++) {
         starfish[i].style.display = "inline-block";
         };
@@ -179,14 +168,20 @@ function runTimer () {
         sec++;
         if (sec <= 9) {
             seconds.innerHTML = "0" + sec; 
+        } else if (sec == 59) {
+            sec = 0;
+            setTimeout ( function () {
+                min++;
+                minutes.innerHTML = min;
+            }, 1000);
         } else { 
             seconds.innerHTML = sec;
             }
-         if (sec === 60) {
-                min++;
-                sec = 0;
-                minutes.innerHTML = min;
-        } 
+//         if (sec === 60) {
+//                min++;
+//                sec = 0;
+//                minutes.innerHTML = min;
+//        }
     }, 1000);
 }
 
@@ -204,14 +199,16 @@ function restartGame () {
     star3.innerHTML = "<i class=\"fa fa-star\"></i>";
     clearInterval(Interval);
     min = 0;
-    sec = 0; 
+    sec = 0;
+    minutes.innerText = "0";
+    seconds.innerText = "0";
     unWiggle();
     starRestore();
 };
 
 function closeCards () {
     for (i = 0; i < card.length; i++) {
-    card[i].classList.remove("open", "match");
+    card[i].classList.remove("open", "match", "lock");
     };
 }
 //-----------Winner's Wiggle---------//
