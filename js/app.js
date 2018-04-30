@@ -189,21 +189,20 @@ function runTimer () {
 restart.addEventListener("click", restartGame);
 
 function restartGame () {
-    shuffle(cardArray);
+    shuffle(cardArray); //reshuffle and deal cards
     dealCards();
-    closeCards();
-    openArray = [];
-    moveNumber = 0;
+    closeCards(); //close any open cards
+    openArray = []; //empty the array
+    moveNumber = 0;  //reset the move counter
+    moves.innerText = "0";
     matchNumber = 0;
-    star2.innerHTML = "<i class=\"fa fa-star\"></i>";
-    star3.innerHTML = "<i class=\"fa fa-star\"></i>";
-    clearInterval(Interval);
+    clearInterval(Interval); //reset the timer
     min = 0;
     sec = 0;
     minutes.innerText = "0";
     seconds.innerText = "0";
-    unWiggle();
-    starRestore();
+    unWiggle();     //stop animation
+    starRestore();  //reset the score
 };
 
 function closeCards () {
@@ -211,7 +210,7 @@ function closeCards () {
     card[i].classList.remove("open", "match", "lock");
     };
 }
-//-----------Winner's Wiggle---------//
+//-----------Winner's Wiggle (animations)---------//
 
 function wiggle () {
     setTimeout (function() {
@@ -220,7 +219,6 @@ function wiggle () {
         };
     }, 850);
 }
-
 
 function unWiggle () {
     for (i = 0; i < fish.length; i++) {
