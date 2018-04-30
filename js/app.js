@@ -8,39 +8,38 @@ const deck = document.querySelector(".deck");
 let card = deck.querySelectorAll("li");
 let shuffledArray = [];
 let openArray = [];//the array which will contain opened cards
-let twoClicked = true;
 
 //For Move Counter:
-let moves = document.querySelector(".moves");
+const moves = document.querySelector(".moves");
 let moveNumber = 0;
 
 //For Star Rating:
-let stars = document.querySelector(".stars");
-let star3 = document.querySelector("#star3");
-let star2 = document.querySelector("#star2");
-let star1 = document.querySelector("#star1");
-let starfish = document.querySelectorAll(".starfish");
+const stars = document.querySelector(".stars");
+const star3 = document.querySelector("#star3");
+const star2 = document.querySelector("#star2");
+const star1 = document.querySelector("#star1");
+const starfish = document.querySelectorAll(".starfish");
 
 //For Timer:
-let timer = document.getElementById("timer");
-let minutes = document.getElementById("minutes");
-let seconds = document.getElementById("seconds");
+const timer = document.getElementById("timer");
+const minutes = document.getElementById("minutes");
+const seconds = document.getElementById("seconds");
 let min = 0;
 let sec = 0;
 
 //For Restart:
-let restart = document.querySelector(".restart");
+const restart = document.querySelector(".restart");
 
 //For Winner's Wiggle:
-let fish = deck.querySelectorAll("img");
-let headerFish = document.querySelectorAll(".header-fish");
+const fish = deck.querySelectorAll("img");
+const headerFish = document.querySelectorAll(".header-fish");
 
 //For End of Game Modal:
 let matchNumber = 0;
-let modal = document.getElementById("modal");
+const modal = document.getElementById("modal");
 let time = document.getElementById("time");
 let score = document.getElementById("score");
-let playAgain = document.getElementById("play-again");
+const playAgain = document.getElementById("play-again");
 
 //--------Shuffle and Deal the Deck----------//
 
@@ -95,6 +94,12 @@ function matchCard (e) {
         if (firstID == secondID) {
             openArray.pop();
         }
+        
+        //disable clicks while pair is showing
+        deck.classList.add("freeze");
+        setTimeout (function () {
+            deck.classList.remove("freeze");
+        }, 850);
         
         //compare the cards
         let firstCard = openArray[0].innerHTML;
@@ -240,7 +245,7 @@ function matchWiggle () {
     
 }
 //-------------Modal------------//
-
+//from https://www.w3schools.com/howto/howto_css_modals.asp
 function callModal () {
     setTimeout (function () {
     modal.style.display = "block";

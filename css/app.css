@@ -121,6 +121,10 @@ h1 {
     pointer-events: none;
 }
 
+.deck.freeze {
+    pointer-events: none;
+}
+
 /*
  * Styles for the Score Panel
  */
@@ -249,6 +253,10 @@ h3 {
 
     #star-score p {
         margin: 0;
+    }
+    
+    h1 {
+        font-size: 45px;
     }
     
 }
