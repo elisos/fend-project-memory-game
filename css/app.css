@@ -137,6 +137,7 @@ h1 {
     background: rgba(130, 228, 255, 0.74);
     cursor: default;
     font-size: 33px;
+    pointer-events: none;
 }
 
 .deck .card.open img {
@@ -157,10 +158,6 @@ h1 {
     cursor: default;
     background: rgba(2, 204, 186, 0.77);
     font-size: 33px;
-}
-
-.deck .card.lock {
-    pointer-events: none;
 }
 
 .deck.freeze {
