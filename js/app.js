@@ -127,7 +127,8 @@ function yesMatch () {
     matchNumber++; //increment the number of matches
     matchWiggle();
     if (matchNumber === 8) { //when the game is completed,
-        wiggle();
+        clearInterval(Interval);//stop the timer
+        wiggle(); //animate fish
         setTimeout (function () {
             callModal(); //trigger modal
         }, 1500);
@@ -201,8 +202,7 @@ function restartGame () {
     moveNumber = 0;  //reset the move counter
     moves.innerText = "0";
     matchNumber = 0;
-    clearInterval(Interval); //reset the timer
-    min = 0;
+    min = 0;//reset the timer
     sec = 0;
     minutes.innerText = "0";
     seconds.innerText = "0";
